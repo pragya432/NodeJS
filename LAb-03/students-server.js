@@ -1,6 +1,7 @@
 const http = require('http');
 
-// Student data
+// STUDENT DATA
+
 const students = [
     { id: 1, name: "Aditya", course: "BCA" },
     { id: 2, name: "Ayush", course: "BCA" },
@@ -18,7 +19,8 @@ const students = [
     { id: 14, name: "Shreya KAshyap", course: "BCA" }
 ];
 
-// Book data for Task 3
+// BOOK DATA - TASK 3
+
 const books = [
     {
         id: 1,
@@ -52,44 +54,79 @@ const books = [
     }
 ];
 
-// Create server
+// CREATE SERVER
+
 const server = http.createServer((req, res) => {
 
-    // Set response type
+    // JSON response
     res.setHeader('Content-Type', 'application/json');
 
-    // =========================
-    // TASK 2 - ALL STUDENTS
-    // =========================
+    // 1. GET ALL STUDENTS
+    // /students
 
     if (req.url === '/students') {
 
         res.end(JSON.stringify(students));
     }
 
-    // =========================
-    // TASK 4 - STUDENTS BY COURSE
-    // =========================
+    // 2. FIND STUDENTS BY COURSE
+    // /students/course/BCA
 
-    else if (req.url === '/students/course/BCA') {
+    else if (req.url.startsWith('/students/course/')) {
 
-        const bcaStudents = students.filter(
-            student => student.course === 'BCA'
+        const course = req.url.split('/')[3];
+
+        const courseStudents = students.filter(
+            student => student.course.toLowerCase() === course.toLowerCase()
         );
 
-        res.end(JSON.stringify(bcaStudents));
+        if (courseStudents.length > 0) {
+
+            res.end(JSON.stringify(courseStudents));
+
+        } else {
+
+            res.writeHead(404);
+
+            res.end(JSON.stringify({
+                error: "No students found for this course"
+            }));
+        }
     }
 
-    // =========================
-    // TASK 2 & 4 - STUDENT BY ID
-    // =========================
+    // 3. FIND STUDENT BY NAME
+    // /students/name/Pragya
+
+    else if (req.url.startsWith('/students/name/')) {
+
+        const name = req.url.split('/')[3];
+
+        const student = students.find(
+            student => student.name.toLowerCase() === name.toLowerCase()
+        );
+
+        if (student) {
+
+            res.end(JSON.stringify(student));
+
+        } else {
+
+            res.writeHead(404);
+
+            res.end(JSON.stringify({
+                error: "Student not found"
+            }));
+        }
+    }
+
+    // 4. FIND STUDENT BY ID
+    // /students/7
 
     else if (req.url.startsWith('/students/')) {
 
-        // Extract ID from URL
         const id = Number(req.url.split('/')[2]);
 
-        // Check for non-numeric ID
+        // Check if ID is a number
         if (isNaN(id)) {
 
             res.writeHead(400);
@@ -101,20 +138,15 @@ const server = http.createServer((req, res) => {
             return;
         }
 
-        // Find student
         const student = students.find(
             student => student.id === id
         );
 
-        // Student found
         if (student) {
 
             res.end(JSON.stringify(student));
 
-        }
-
-        // Student not found
-        else {
+        } else {
 
             res.writeHead(404);
 
@@ -124,25 +156,22 @@ const server = http.createServer((req, res) => {
         }
     }
 
-    // =========================
-    // TASK 3 - ALL ITEMS
-    // =========================
+    // 5. GET ALL BOOKS
+    // /items
 
     else if (req.url === '/items') {
 
         res.end(JSON.stringify(books));
     }
 
-    // =========================
-    // TASK 3 - ITEM BY ID
-    // =========================
+    // 6. FIND BOOK BY ID
+    // /items/1
 
     else if (req.url.startsWith('/items/')) {
 
-        // Extract ID from URL
         const id = Number(req.url.split('/')[2]);
 
-        // Check for non-numeric ID
+        // Check if ID is a number
         if (isNaN(id)) {
 
             res.writeHead(400);
@@ -154,20 +183,15 @@ const server = http.createServer((req, res) => {
             return;
         }
 
-        // Find book
         const book = books.find(
             book => book.id === id
         );
 
-        // Book found
         if (book) {
 
             res.end(JSON.stringify(book));
 
-        }
-
-        // Book not found
-        else {
+        } else {
 
             res.writeHead(404);
 
@@ -177,7 +201,7 @@ const server = http.createServer((req, res) => {
         }
     }
 
-    // ROUTE NOT FOUND
+    // 7. ROUTE NOT FOUND
 
     else {
 
@@ -189,7 +213,8 @@ const server = http.createServer((req, res) => {
     }
 });
 
-// Start server
+// START SERVER
+
 server.listen(3000, () => {
     console.log("Server running on port 3000");
 });
