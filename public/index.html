@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="CS403NOD Node.js Laboratory Portfolio - BCA VII"
+    >
+
+    <title>Node.js Laboratory Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header class="header" id="home">
+
+    <nav class="navbar">
+
+        <a href="#home" class="logo">
+            <span class="logo-mark">N</span>
+
+            <span class="logo-text">
+                <strong>NODE.JS LAB</strong>
+                <small>CS403NOD</small>
+            </span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Toggle navigation"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-links" id="navLinks">
+
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#labs">Labs</a>
+            <a href="#technologies">Technologies</a>
+            <a href="#github">GitHub</a>
+
+            <a
+                href="https://github.com/pragya432/NodeJS"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="nav-repository"
+            >
+                Repository ↗
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-grid">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                <span class="eyebrow-line"></span>
+                CS403NOD / BCA VII
+            </div>
+
+            <h1>
+                Node.js
+                <em>Laboratory</em>
+                Portfolio
+            </h1>
+
+            <p class="hero-text">
+                A structured collection of practical Node.js laboratory
+                implementations covering runtime fundamentals, HTTP servers,
+                routing and API development.
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="#labs" class="button button-primary">
+                    Explore Laboratories
+                    <span>↓</span>
+                </a>
+
+                <a
+                    href="https://github.com/pragya432/NodeJS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="button button-ghost"
+                >
+                    View GitHub ↗
+                </a>
+
+            </div>
+
+            <div class="hero-details">
+
+                <div>
+                    <span>PROGRAM</span>
+                    <strong>BCA VII</strong>
+                </div>
+
+                <div>
+                    <span>COURSE</span>
+                    <strong>CS403NOD</strong>
+                </div>
+
+                <div>
+                    <span>DEPARTMENT</span>
+                    <strong>Computer Science</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TERMINAL -->
+
+        <div class="hero-terminal-wrap">
+
+            <div class="terminal-label">
+                NODE.JS / DEVELOPMENT ENVIRONMENT
+            </div>
+
+            <div class="terminal">
+
+                <div class="terminal-top">
+
+                    <div class="terminal-buttons">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </div>
+
+                    <span>server.js</span>
+
+                </div>
+
+                <div class="terminal-code">
+
+                    <div>
+                        <span class="line-number">01</span>
+                        <span class="code-purple">const</span>
+                        <span>http</span>
+                        <span>=</span>
+                        <span class="code-purple">require</span>
+                        <span>(</span>
+                        <span class="code-green">'http'</span>
+                        <span>);</span>
+                    </div>
+
+                    <div>
+                        <span class="line-number">02</span>
+                    </div>
+
+                    <div>
+                        <span class="line-number">03</span>
+                        <span class="code-purple">const</span>
+                        <span>server</span>
+                        <span>=</span>
+                        <span>http.</span>
+                        <span class="code-blue">createServer</span>
+                        <span>((req, res) =&gt; {</span>
+                    </div>
+
+                    <div>
+                        <span class="line-number">04</span>
+                        <span class="indent">res.writeHead(200);</span>
+                    </div>
+
+                    <div>
+                        <span class="line-number">05</span>
+                        <span class="indent">
+                            res.end(<span class="code-green">'Node.js Server'</span>);
+                        </span>
+                    </div>
+
+                    <div>
+                        <span class="line-number">06</span>
+                        <span>});</span>
+                    </div>
+
+                    <div>
+                        <span class="line-number">07</span>
+                    </div>
+
+                    <div>
+                        <span class="line-number">08</span>
+                        <span>server.listen(3000);</span>
+                    </div>
+
+                </div>
+
+                <div class="terminal-output">
+
+                    <div class="output-command">
+                        <span>$</span> node server.js
+                    </div>
+
+                    <div class="output-success">
+                        ● Server running on port 3000
+                    </div>
+
+                    <div class="output-request">
+                        <span>GET</span> /students
+                    </div>
+
+                    <div class="output-request">
+                        <span>GET</span> /students/1
+                    </div>
+
+                    <div class="output-request">
+                        <span>GET</span> /students?course=BCA
+                    </div>
+
+                    <div class="terminal-online">
+                        STATUS <strong>ONLINE</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="terminal-float float-one">
+                Node.js
+            </div>
+
+            <div class="terminal-float float-two">
+                REST API
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section class="about section" id="about">
+
+    <div class="container">
+
+        <div class="section-intro">
+
+            <span class="section-index">01</span>
+
+            <div>
+                <span class="section-kicker">
+                    ABOUT THE LABORATORY
+                </span>
+
+                <h2>
+                    Learning Node.js
+                    <br>
+                    <span>through implementation.</span>
+                </h2>
+            </div>
+
+        </div>
+
+
+        <div class="about-layout">
+
+            <div class="about-main">
+
+                <p class="large-text">
+                    This portfolio documents my practical work for
+                    <strong>CS403NOD – Node.js</strong>.
+                    Each laboratory assignment focuses on understanding
+                    Node.js concepts through hands-on implementation,
+                    testing and API development.
+                </p>
+
+                <p>
+                    The work progresses from understanding the Node.js
+                    runtime and executing basic programs to creating HTTP
+                    servers and building dynamic APIs using routes,
+                    parameters and JavaScript array methods.
+                </p>
+
+                <div class="about-statement">
+                    From basic Node.js execution to dynamic API development.
+                </div>
+
+            </div>
+
+
+            <div class="about-points">
+
+                <article>
+                    <span>01</span>
+
+                    <div>
+                        <h3>Learn</h3>
+                        <p>
+                            Understand Node.js fundamentals and
+                            server-side JavaScript.
+                        </p>
+                    </div>
+                </article>
+
+                <article>
+                    <span>02</span>
+
+                    <div>
+                        <h3>Build</h3>
+                        <p>
+                            Create HTTP servers and REST-style APIs.
+                        </p>
+                    </div>
+                </article>
+
+                <article>
+                    <span>03</span>
+
+                    <div>
+                        <h3>Test</h3>
+                        <p>
+                            Test routes, parameters and API responses.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STATISTICS
+===================================================== -->
+
+<section class="stats">
+
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div class="stat">
+                <strong>03</strong>
+                <span>Labs Completed</span>
+            </div>
+
+            <div class="stat">
+                <strong>Node.js</strong>
+                <span>Runtime Environment</span>
+            </div>
+
+            <div class="stat">
+                <strong>HTTP</strong>
+                <span>Server Development</span>
+            </div>
+
+            <div class="stat">
+                <strong>API</strong>
+                <span>Dynamic Development</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LEARNING
+===================================================== -->
+
+<section class="learning section">
+
+    <div class="container">
+
+        <div class="section-intro">
+
+            <span class="section-index">02</span>
+
+            <div>
+                <span class="section-kicker">
+                    LEARNING OBJECTIVES
+                </span>
+
+                <h2>
+                    Concepts developed
+                    <br>
+                    <span>through practical work.</span>
+                </h2>
+            </div>
+
+        </div>
+
+
+        <div class="learning-grid">
+
+            <article class="learning-item">
+                <span>01</span>
+                <h3>Node.js Fundamentals</h3>
+                <p>
+                    Understanding the Node.js runtime and execution
+                    environment.
+                </p>
+            </article>
+
+            <article class="learning-item">
+                <span>02</span>
+                <h3>HTTP Servers</h3>
+                <p>
+                    Creating servers using Node.js built-in modules.
+                </p>
+            </article>
+
+            <article class="learning-item">
+                <span>03</span>
+                <h3>Routing</h3>
+                <p>
+                    Working with dynamic routes and URL parameters.
+                </p>
+            </article>
+
+            <article class="learning-item">
+                <span>04</span>
+                <h3>REST APIs</h3>
+                <p>
+                    Returning structured JSON responses from APIs.
+                </p>
+            </article>
+
+            <article class="learning-item">
+                <span>05</span>
+                <h3>Filtering & Searching</h3>
+                <p>
+                    Using query parameters and JavaScript array methods.
+                </p>
+            </article>
+
+            <article class="learning-item">
+                <span>06</span>
+                <h3>Error Handling</h3>
+                <p>
+                    Handling invalid routes and requests gracefully.
+                </p>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LABS
+===================================================== -->
+
+<section class="labs section" id="labs">
+
+    <div class="container">
+
+        <div class="labs-header">
+
+            <div class="section-intro">
+
+                <span class="section-index">03</span>
+
+                <div>
+                    <span class="section-kicker">
+                        LABORATORY PORTFOLIO
+                    </span>
+
+                    <h2>
+                        Laboratory
+                        <span>Work.</span>
+                    </h2>
+                </div>
+
+            </div>
+
+            <p>
+                Explore the practical assignments completed as part
+                of CS403NOD.
+            </p>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="lab-search">
+
+            <label for="labSearch">
+                FIND A LABORATORY
+            </label>
+
+            <div class="search-input-wrap">
+
+                <span>⌕</span>
+
+                <input
+                    type="search"
+                    id="labSearch"
+                    placeholder="Search by lab number, title, topic or technology..."
+                >
+
+                <button id="clearSearch" type="button">
+                    Clear
+                </button>
+
+            </div>
+
+            <p id="searchResult"></p>
+
+        </div>
+
+
+        <!-- =================================================
+             LAB 01
+        ================================================== -->
+
+        <article class="case-study" data-lab-id="1">
+
+            <div class="case-header">
+
+                <div class="case-number">
+                    01
+                </div>
+
+                <div class="case-heading">
+
+                    <span>LABORATORY 01</span>
+
+                    <h3>
+                        Getting Started with Node.js
+                    </h3>
+
+                    <p>
+                        Introduction to the Node.js runtime environment,
+                        npm and the basic process of creating and executing
+                        Node.js applications.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="case-grid">
+
+                <div class="case-details">
+
+                    <div class="detail-block">
+
+                        <span>OBJECTIVE</span>
+
+                        <p>
+                            Understand the Node.js environment and create
+                            the first Node.js application.
+                        </p>
+
+                    </div>
+
+
+                    <div class="detail-block">
+
+                        <span>TOPICS</span>
+
+                        <div class="tags">
+
+                            <span>Node.js</span>
+                            <span>npm</span>
+                            <span>Runtime</span>
+                            <span>JavaScript</span>
+                            <span>Server-side Development</span>
+                            <span>Git</span>
+                            <span>GitHub</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="case-actions">
+
+                        <button
+                            class="button button-primary details-btn"
+                            data-lab="1"
+                        >
+                            View Lab Details →
+                        </button>
+
+                        <a
+                            href="https://github.com/pragya432/NodeJS"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-link"
+                        >
+                            View on GitHub ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="case-images">
+
+                    <button
+                        class="screenshot-main image-preview"
+                        data-image="images/lab1-output.png"
+                        data-title="Lab 01 — Node.js Output"
+                    >
+
+                        <img
+                            src="images/lab1-output.png"
+                            alt="Lab 01 Node.js output screenshot"
+                        >
+
+                        <span class="image-fallback">
+                            LAB 01 OUTPUT
+                        </span>
+
+                        <span class="image-expand">
+                            ↗
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="screenshot-small image-preview"
+                        data-image="images/lab1-node-version.png"
+                        data-title="Lab 01 — Node.js Version"
+                    >
+
+                        <img
+                            src="images/lab1-node-version.png"
+                            alt="Lab 01 Node.js version screenshot"
+                        >
+
+                        <span class="image-fallback">
+                            NODE VERSION
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             LAB 02
+        ================================================== -->
+
+        <article class="case-study case-study-reverse" data-lab-id="2">
+
+            <div class="case-header">
+
+                <div class="case-number">
+                    02
+                </div>
+
+                <div class="case-heading">
+
+                    <span>LABORATORY 02</span>
+
+                    <h3>
+                        Node.js HTTP Server
+                    </h3>
+
+                    <p>
+                        Implementation of an HTTP server using Node.js
+                        built-in modules and understanding request-response
+                        communication.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="case-grid">
+
+                <div class="case-images">
+
+                    <button
+                        class="screenshot-main image-preview"
+                        data-image="images/lab2-output.png"
+                        data-title="Lab 02 — HTTP Server Output"
+                    >
+
+                        <img
+                            src="images/lab2-output.png"
+                            alt="Lab 02 HTTP server output screenshot"
+                        >
+
+                        <span class="image-fallback">
+                            LAB 02 OUTPUT
+                        </span>
+
+                        <span class="image-expand">
+                            ↗
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <div class="case-details">
+
+                    <div class="detail-block">
+
+                        <span>OBJECTIVE</span>
+
+                        <p>
+                            Understand how Node.js handles HTTP requests
+                            and responses.
+                        </p>
+
+                    </div>
+
+
+                    <div class="detail-block">
+
+                        <span>TOPICS</span>
+
+                        <div class="tags">
+
+                            <span>HTTP</span>
+                            <span>createServer()</span>
+                            <span>Request</span>
+                            <span>Response</span>
+                            <span>Status Codes</span>
+                            <span>Headers</span>
+                            <span>localhost</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="case-actions">
+
+                        <button
+                            class="button button-primary details-btn"
+                            data-lab="2"
+                        >
+                            View Lab Details →
+                        </button>
+
+                        <a
+                            href="https://github.com/pragya432/NodeJS"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-link"
+                        >
+                            View on GitHub ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             LAB 03
+        ================================================== -->
+
+        <article class="case-study" data-lab-id="3">
+
+            <div class="case-header">
+
+                <div class="case-number">
+                    03
+                </div>
+
+                <div class="case-heading">
+
+                    <span>LABORATORY 03</span>
+
+                    <h3>
+                        Student Directory API
+                    </h3>
+
+                    <p>
+                        Development of a dynamic Student Directory API
+                        using route parameters, array methods and JSON
+                        responses.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="case-grid">
+
+                <div class="case-details">
+
+                    <div class="detail-block">
+
+                        <span>OBJECTIVE</span>
+
+                        <p>
+                            Build a dynamic API capable of returning
+                            specific student information based on route
+                            parameters.
+                        </p>
+
+                    </div>
+
+
+                    <div class="detail-block">
+
+                        <span>TOPICS</span>
+
+                        <div class="tags">
+
+                            <span>Route Parameters</span>
+                            <span>req.url</span>
+                            <span>find()</span>
+                            <span>filter()</span>
+                            <span>JSON</span>
+                            <span>HTTP 404</span>
+                            <span>Student Directory</span>
+                            <span>Course Filtering</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="case-actions">
+
+                        <button
+                            class="button button-primary details-btn"
+                            data-lab="3"
+                        >
+                            View Lab Details →
+                        </button>
+
+                        <a
+                            href="https://github.com/pragya432/NodeJS"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-link"
+                        >
+                            View on GitHub ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="case-images two-images">
+
+                    <button
+                        class="screenshot-main image-preview"
+                        data-image="images/lab3-students-output.png"
+                        data-title="Lab 03 — Student Directory"
+                    >
+
+                        <img
+                            src="images/lab3-students-output.png"
+                            alt="Lab 03 Student Directory API output"
+                        >
+
+                        <span class="image-fallback">
+                            STUDENT DIRECTORY
+                        </span>
+
+                        <span class="image-expand">
+                            ↗
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="screenshot-small image-preview"
+                        data-image="images/lab3-items-output.png"
+                        data-title="Lab 03 — Items Output"
+                    >
+
+                        <img
+                            src="images/lab3-items-output.png"
+                            alt="Lab 03 items output"
+                        >
+
+                        <span class="image-fallback">
+                            ITEMS OUTPUT
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <div
+            class="no-results"
+            id="noResults"
+            hidden
+        >
+
+            <strong>No laboratories found.</strong>
+
+            <span>
+                Try another keyword.
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     OUTPUT GALLERY
+===================================================== -->
+
+<section class="outputs section">
+
+    <div class="container">
+
+        <div class="section-intro">
+
+            <span class="section-index">04</span>
+
+            <div>
+
+                <span class="section-kicker">
+                    PRACTICAL EVIDENCE
+                </span>
+
+                <h2>
+                    Laboratory
+                    <span>Outputs.</span>
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="output-grid">
+
+            <button
+                class="output-card output-large image-preview"
+                data-image="images/lab1-output.png"
+                data-title="Lab 01 — Output"
+            >
+
+                <img
+                    src="images/lab1-output.png"
+                    alt="Lab 01 output"
+                >
+
+                <div class="output-caption">
+                    <span>LAB 01</span>
+                    <strong>Node.js Output</strong>
+                </div>
+
+            </button>
+
+
+            <button
+                class="output-card image-preview"
+                data-image="images/lab1-node-version.png"
+                data-title="Lab 01 — Node Version"
+            >
+
+                <img
+                    src="images/lab1-node-version.png"
+                    alt="Lab 01 Node version"
+                >
+
+                <div class="output-caption">
+                    <span>LAB 01</span>
+                    <strong>Node Version</strong>
+                </div>
+
+            </button>
+
+
+            <button
+                class="output-card image-preview"
+                data-image="images/lab2-output.png"
+                data-title="Lab 02 — HTTP Server"
+            >
+
+                <img
+                    src="images/lab2-output.png"
+                    alt="Lab 02 HTTP server output"
+                >
+
+                <div class="output-caption">
+                    <span>LAB 02</span>
+                    <strong>HTTP Server</strong>
+                </div>
+
+            </button>
+
+
+            <button
+                class="output-card image-preview"
+                data-image="images/lab3-students-output.png"
+                data-title="Lab 03 — Students"
+            >
+
+                <img
+                    src="images/lab3-students-output.png"
+                    alt="Lab 03 Student Directory"
+                >
+
+                <div class="output-caption">
+                    <span>LAB 03</span>
+                    <strong>Student Directory</strong>
+                </div>
+
+            </button>
+
+
+            <button
+                class="output-card image-preview"
+                data-image="images/lab3-items-output.png"
+                data-title="Lab 03 — Items"
+            >
+
+                <img
+                    src="images/lab3-items-output.png"
+                    alt="Lab 03 items output"
+                >
+
+                <div class="output-caption">
+                    <span>LAB 03</span>
+                    <strong>Items Output</strong>
+                </div>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TECHNOLOGIES
+===================================================== -->
+
+<section class="technology section" id="technologies">
+
+    <div class="container">
+
+        <div class="section-intro light">
+
+            <span class="section-index">05</span>
+
+            <div>
+
+                <span class="section-kicker">
+                    TECHNOLOGY STACK
+                </span>
+
+                <h2>
+                    Technologies
+                    <span>& Tools.</span>
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="technology-grid">
+
+            <article>
+                <span>01</span>
+                <h3>Node.js</h3>
+                <p>
+                    JavaScript runtime used for executing server-side
+                    applications.
+                </p>
+            </article>
+
+            <article>
+                <span>02</span>
+                <h3>JavaScript</h3>
+                <p>
+                    Programming language used to implement the
+                    laboratory logic.
+                </p>
+            </article>
+
+            <article>
+                <span>03</span>
+                <h3>HTTP</h3>
+                <p>
+                    Protocol used for request and response communication.
+                </p>
+            </article>
+
+            <article>
+                <span>04</span>
+                <h3>REST API</h3>
+                <p>
+                    Used for structured API endpoints and JSON responses.
+                </p>
+            </article>
+
+            <article>
+                <span>05</span>
+                <h3>npm</h3>
+                <p>
+                    Package manager used with the Node.js environment.
+                </p>
+            </article>
+
+            <article>
+                <span>06</span>
+                <h3>Git</h3>
+                <p>
+                    Version control system used for managing source code.
+                </p>
+            </article>
+
+            <article>
+                <span>07</span>
+                <h3>GitHub</h3>
+                <p>
+                    Platform used for source code hosting and submission.
+                </p>
+            </article>
+
+            <article>
+                <span>08</span>
+                <h3>VS Code</h3>
+                <p>
+                    Development environment used to write and manage code.
+                </p>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WORKFLOW
+===================================================== -->
+
+<section class="workflow section">
+
+    <div class="container">
+
+        <div class="section-intro">
+
+            <span class="section-index">06</span>
+
+            <div>
+
+                <span class="section-kicker">
+                    DEVELOPMENT PROCESS
+                </span>
+
+                <h2>
+                    Laboratory
+                    <span>Workflow.</span>
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="workflow-grid">
+
+            <article>
+                <span>01</span>
+                <h3>Understand</h3>
+                <p>
+                    Read and understand the laboratory requirements.
+                </p>
+            </article>
+
+            <article>
+                <span>02</span>
+                <h3>Implement</h3>
+                <p>
+                    Write and execute the required Node.js code.
+                </p>
+            </article>
+
+            <article>
+                <span>03</span>
+                <h3>Test</h3>
+                <p>
+                    Test routes, requests and API responses.
+                </p>
+            </article>
+
+            <article>
+                <span>04</span>
+                <h3>Document</h3>
+                <p>
+                    Capture outputs and update documentation.
+                </p>
+            </article>
+
+            <article>
+                <span>05</span>
+                <h3>Submit</h3>
+                <p>
+                    Push completed laboratory work to GitHub.
+                </p>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     GITHUB
+===================================================== -->
+
+<section class="github" id="github">
+
+    <div class="github-inner">
+
+        <span class="section-kicker">
+            SOURCE CODE
+        </span>
+
+        <h2>
+            Explore the
+            <span>Source Code.</span>
+        </h2>
+
+        <p>
+            All laboratory implementations, source files and project
+            documentation are maintained in my GitHub repository.
+        </p>
+
+        <a
+            href="https://github.com/pragya432/NodeJS"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="github-button"
+        >
+            <span>GitHub</span>
+            View GitHub Repository ↗
+        </a>
+
+        <small>
+            Source code • Laboratory implementations • Documentation
+        </small>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-about">
+
+                <a href="#home" class="footer-logo">
+                    <span class="logo-mark">N</span>
+
+                    <span>
+                        <strong>NODE.JS LAB</strong>
+                        <small>CS403NOD</small>
+                    </span>
+                </a>
+
+                <p>
+                    A collection of practical Node.js implementations
+                    developed as part of my BCA VII coursework.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>QUICK LINKS</h4>
+
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#labs">Laboratories</a>
+                <a href="#technologies">Technologies</a>
+                <a href="#github">GitHub</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>LABORATORIES</h4>
+
+                <a href="#labs">
+                    Lab 01
+                    <small>Getting Started with Node.js</small>
+                </a>
+
+                <a href="#labs">
+                    Lab 02
+                    <small>Node.js HTTP Server</small>
+                </a>
+
+                <a href="#labs">
+                    Lab 03
+                    <small>Student Directory API</small>
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>COURSE</h4>
+
+                <span>CS403NOD</span>
+                <span>BCA VII</span>
+                <span>Department of Computer Science</span>
+
+                <a
+                    href="https://github.com/pragya432/NodeJS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub ↗
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Node.js Laboratory Portfolio
+            </span>
+
+            <span>
+                CS403NOD • BCA VII
+            </span>
+
+            <span>
+                Built with HTML • CSS • JavaScript • Node.js
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     LAB MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="labModal"
+    aria-hidden="true"
+>
+
+    <div class="modal-backdrop"></div>
+
+    <div class="modal-box">
+
+        <button
+            class="modal-close"
+            id="modalClose"
+            aria-label="Close modal"
+        >
+            ×
+        </button>
+
+        <span id="modalNumber" class="modal-number">
+            LAB 01
+        </span>
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalDescription" class="modal-description"></p>
+
+
+        <div class="modal-block">
+
+            <span>OBJECTIVE</span>
+
+            <p id="modalObjective"></p>
+
+        </div>
+
+
+        <div class="modal-block">
+
+            <span>TASKS</span>
+
+            <div id="modalTasks"></div>
+
+        </div>
+
+
+        <div class="modal-block">
+
+            <span>TOPICS</span>
+
+            <div
+                id="modalTopics"
+                class="tags"
+            ></div>
+
+        </div>
+
+
+        <div class="modal-block">
+
+            <span>TECHNOLOGIES</span>
+
+            <div
+                id="modalTechnologies"
+                class="tags"
+            ></div>
+
+        </div>
+
+
+        <div class="modal-block">
+
+            <span>OUTPUT</span>
+
+            <div
+                id="modalImages"
+                class="modal-images"
+            ></div>
+
+        </div>
+
+
+        <a
+            href="https://github.com/pragya432/NodeJS"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button button-primary"
+        >
+            View Source on GitHub ↗
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     LIGHTBOX
+===================================================== -->
+
+<div
+    class="lightbox"
+    id="lightbox"
+    aria-hidden="true"
+>
+
+    <button
+        id="lightboxClose"
+        class="lightbox-close"
+        aria-label="Close image"
+    >
+        ×
+    </button>
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt=""
+    >
+
+    <div id="lightboxTitle"></div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
