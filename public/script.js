@@ -142,6 +142,8 @@ const labs = [
             "REST API"
         ],
 
+        
+
         screenshots: [
             {
                 src: "/lab-03/students-output.png",
@@ -161,6 +163,155 @@ const labs = [
             "Use find() and filter() array methods.",
             "Handle unavailable students using HTTP 404.",
             "Implement student and course filtering."
+        ]
+    }
+
+
+    {
+        id: 4,
+
+        number: "LAB 04",
+
+        title: "Query Parameters — Search, Filter & Sort",
+
+        description:
+            "Working with query parameters to search, filter and sort data dynamically in a Node.js API.",
+
+        objective:
+            "Understand how query parameters are received from the URL and use them to perform searching, filtering and sorting operations on data.",
+
+        topics: [
+            "Query Parameters",
+            "req.url",
+            "URLSearchParams",
+            "Search",
+            "Filter",
+            "Sort",
+            "Array Methods",
+            "JSON"
+        ],
+
+        technologies: [
+            "Node.js",
+            "JavaScript",
+            "HTTP",
+            "REST API"
+        ],
+
+        screenshots: [
+            {
+                src: "/lab-04/lab4-output.png",
+                title: "Lab 04 Search, Filter & Sort Output"
+            }
+        ],
+
+        tasks: [
+            "Create an API for working with a collection of data.",
+            "Read query parameters from the request URL.",
+            "Implement search functionality using query parameters.",
+            "Filter records based on the requested criteria.",
+            "Sort records using query parameters.",
+            "Return the processed data as a JSON response.",
+            "Test different combinations of query parameters."
+        ]
+    },
+
+
+    {
+        id: 5,
+
+        number: "LAB 05",
+
+        title: "Asynchronous Programming in Node.js",
+
+        description:
+            "Implementation of asynchronous programming using callbacks, Promises and async/await in Node.js.",
+
+        objective:
+            "Understand asynchronous execution in Node.js and implement callbacks, Promises and async/await for handling operations without blocking the application.",
+
+        topics: [
+            "Callbacks",
+            "Promises",
+            "async/await",
+            "Asynchronous Programming",
+            "Non-blocking I/O",
+            "Error Handling",
+            "JavaScript"
+        ],
+
+        technologies: [
+            "Node.js",
+            "JavaScript",
+            "Promises",
+            "async/await"
+        ],
+
+        screenshots: [
+            {
+                src: "/lab-05/lab5-output.png",
+                title: "Lab 05 Asynchronous Programming Output"
+            }
+        ],
+
+        tasks: [
+            "Implement an operation using a callback.",
+            "Create and consume a Promise.",
+            "Handle asynchronous operations using then() and catch().",
+            "Rewrite the operation using async/await.",
+            "Handle errors in asynchronous operations.",
+            "Compare callback, Promise and async/await approaches.",
+            "Observe the non-blocking nature of asynchronous execution."
+        ]
+    },
+
+
+    {
+        id: 6,
+
+        number: "LAB 06",
+
+        title: "Asynchronous I/O & Error Handling",
+
+        description:
+            "Working with asynchronous I/O operations and handling errors effectively in Node.js applications.",
+
+        objective:
+            "Understand asynchronous I/O operations and implement proper error handling while working with Node.js file and I/O operations.",
+
+        topics: [
+            "Asynchronous I/O",
+            "fs Module",
+            "Callbacks",
+            "Promises",
+            "async/await",
+            "try...catch",
+            "Error Handling",
+            "Non-blocking I/O"
+        ],
+
+        technologies: [
+            "Node.js",
+            "JavaScript",
+            "File System",
+            "Asynchronous I/O"
+        ],
+
+        screenshots: [
+            {
+                src: "/lab-06/lab6-output.png",
+                title: "Lab 06 Asynchronous I/O Output"
+            }
+        ],
+
+        tasks: [
+            "Work with asynchronous file system operations.",
+            "Read and process data without blocking execution.",
+            "Handle errors returned by asynchronous operations.",
+            "Use callbacks for asynchronous I/O.",
+            "Use Promises for asynchronous operations.",
+            "Handle asynchronous operations using async/await.",
+            "Implement proper error handling using try...catch."
         ]
     }
 
