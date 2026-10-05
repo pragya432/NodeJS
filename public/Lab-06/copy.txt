@@ -1,0 +1,3 @@
+Node.js File System Module
+This is my Lab 06 sample file.
+I am learning asynchronous and synchronous file operations.

@@ -99,130 +99,38 @@ const server = http.createServer((req, res) => {
         return;
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | HOME PAGE
-    |--------------------------------------------------------------------------
-    */
-
     if (requestPath === "/") {
         sendFile(
             res,
             path.join(PUBLIC_DIR, "index.html")
         );
-
         return;
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | LAB-03 EXISTING SCREENSHOTS
-    |--------------------------------------------------------------------------
-    |
-    | These files remain inside Lab-03.
-    | They are served through the main portfolio server.
-    |
-    */
+    // Try serving from public directory first
+    let filePath = path.join(PUBLIC_DIR, requestPath);
 
-    const lab03Files = {
-        "/lab-03/students-output.png":
-            path.join(ROOT_DIR, "Lab-03", "students-output.png"),
-
-        "/lab-03/items-output.png":
-            path.join(ROOT_DIR, "Lab-03", "items-output.png")
-    };
-
-    if (lab03Files[requestPath]) {
-
-        const filePath = lab03Files[requestPath];
-
-        if (!isSafePath(filePath, ROOT_DIR)) {
-            res.writeHead(403);
-            res.end("403 - Forbidden");
+    if (isSafePath(filePath, PUBLIC_DIR)) {
+        if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+            sendFile(res, filePath);
             return;
         }
-
-        sendFile(res, filePath);
-        return;
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | LAB-01 / LAB-02 SCREENSHOTS
-    |--------------------------------------------------------------------------
-    |
-    | If you later place screenshots inside those folders,
-    | these routes can serve them without moving the files.
-    |
-    */
+    // Fallback to root directory (e.g. lab-01/lab1-output.png)
+    filePath = path.join(ROOT_DIR, requestPath);
 
-    const labFiles = {
-
-        "/lab-01/lab1-output.png":
-            path.join(ROOT_DIR, "Lab-01", "lab1-output.png"),
-
-        "/lab-01/lab1-node-version.png":
-            path.join(ROOT_DIR, "Lab-01", "lab1-node-version.png"),
-
-        "/lab-02/lab2-output.png":
-            path.join(ROOT_DIR, "Lab-02", "lab2-output.png")
-    };
-
-    if (labFiles[requestPath]) {
-
-        const filePath = labFiles[requestPath];
-
-        if (!isSafePath(filePath, ROOT_DIR)) {
-            res.writeHead(403);
-            res.end("403 - Forbidden");
+    if (isSafePath(filePath, ROOT_DIR)) {
+        if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+            sendFile(res, filePath);
             return;
         }
-
-        sendFile(res, filePath);
-        return;
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | PUBLIC FILES
-    |--------------------------------------------------------------------------
-    */
-
-    let requestedFile = requestPath;
-
-    if (requestedFile === "/index.html") {
-        requestedFile = "/index.html";
-    }
-
-    const filePath = path.join(
-        PUBLIC_DIR,
-        requestedFile
-    );
-
-    if (!isSafePath(filePath, PUBLIC_DIR)) {
-
-        res.writeHead(403, {
-            "Content-Type": "text/plain; charset=utf-8"
-        });
-
-        res.end("403 - Forbidden");
-        return;
-    }
-
-    fs.stat(filePath, (error, stats) => {
-
-        if (error || !stats.isFile()) {
-
-            res.writeHead(404, {
-                "Content-Type": "text/plain; charset=utf-8"
-            });
-
-            res.end("404 - Page or File Not Found");
-            return;
-        }
-
-        sendFile(res, filePath);
+    res.writeHead(404, {
+        "Content-Type": "text/plain; charset=utf-8"
     });
+    res.end("404 - Page or File Not Found");
 });
 
 /*
@@ -232,7 +140,6 @@ const server = http.createServer((req, res) => {
 */
 
 server.listen(PORT, () => {
-
     console.log("");
     console.log("==========================================");
     console.log("     NODE.JS LABORATORY PORTFOLIO");
