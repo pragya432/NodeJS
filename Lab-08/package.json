@@ -1,0 +1,21 @@
+{
+  "name": "lab-08-integrated-server",
+  "version": "1.0.0",
+  "description": "Lab 08 - Integrated Node.js Server bringing together Lab 01 to Lab 07",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "integrated-server",
+    "http",
+    "eventemitter",
+    "fs"
+  ],
+  "author": "Pragya Gupta",
+  "license": "ISC",
+  "dependencies": {
+    "slugify": "^1.6.9"
+  }
+}

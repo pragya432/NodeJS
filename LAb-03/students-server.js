@@ -54,9 +54,9 @@ const books = [
     }
 ];
 
-// CREATE SERVER
+// REQUEST HANDLER
 
-const server = http.createServer((req, res) => {
+function handler(req, res) {
 
     // JSON response
     res.setHeader('Content-Type', 'application/json');
@@ -211,10 +211,13 @@ const server = http.createServer((req, res) => {
             error: "Route not found"
         }));
     }
-});
+}
 
-// START SERVER
+module.exports = handler;
 
-server.listen(3000, () => {
-    console.log("Server running on port 3000");
-});
+if (require.main === module) {
+    const PORT = process.env.PORT || 3000;
+    http.createServer(handler).listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}

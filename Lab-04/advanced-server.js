@@ -18,7 +18,7 @@ const students = [
     { id: 14, name: "Shreya KAshyap", course: "MCA", marks: 82 }
 ];
 
-const server = http.createServer((req, res) => {
+function handler(req, res) {
 
     res.setHeader('Content-Type', 'application/json');
 
@@ -131,8 +131,13 @@ const server = http.createServer((req, res) => {
             error: "Route not found"
         }));
     }
-});
+}
 
-server.listen(3000, () => {
-    console.log('Server running on port 3000');
-});
+module.exports = handler;
+
+if (require.main === module) {
+    const PORT = process.env.PORT || 3000;
+    http.createServer(handler).listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}
