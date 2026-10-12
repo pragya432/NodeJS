@@ -526,20 +526,6 @@ const sharedStyles = `
       padding: 14px 16px;
       margin-top: 14px;
     }
-    .terminal-chips {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 16px;
-    }
-    .terminal-chip {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 8px;
-      padding: 8px 12px;
-    }
-    .chip-label { font-size: 0.7rem; color: #94A3B8; text-transform: uppercase; }
-    .chip-value { font-size: 0.88rem; font-weight: 700; color: #F8FAFC; margin-top: 2px; }
 
     /* 5. LAB DIRECTORY GRID */
     .section-header {
@@ -557,38 +543,6 @@ const sharedStyles = `
       font-size: 0.92rem;
       color: var(--text-muted);
       margin-top: 4px;
-    }
-    .category-divider {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin: 36px 0 20px;
-    }
-    .category-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      border-radius: 9999px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .cat-server {
-      background: #E8F5E9;
-      color: var(--node-dark);
-      border: 1px solid #C8E6C9;
-    }
-    .cat-script {
-      background: #FFFBEB;
-      color: #92400E;
-      border: 1px solid #FDE68A;
-    }
-    .cat-line {
-      flex: 1;
-      height: 1px;
-      background: var(--card-border);
     }
     .labs-grid {
       display: grid;
@@ -980,8 +934,7 @@ async function handleHome(req, res) {
         `;
     }
 
-    const serverCardsHtml = serverLabs.map(renderLabCard).join('');
-    const scriptCardsHtml = scriptLabs.map(renderLabCard).join('');
+    const allCardsHtml = labs.map(renderLabCard).join('');
 
     const html = `<!DOCTYPE html>
 <html lang="en">
@@ -1141,23 +1094,9 @@ async function handleHome(req, res) {
             <span style="color: #5FA04E;">GET /labs/:id/run</span>   <span style="color: #64748B;">&rarr;</span> <span style="color: #F8FAFC;">execFile(Node, 5000ms)</span><br>
             <span style="color: #5FA04E;">* (Every Request)</span>   <span style="color: #64748B;">&rarr;</span> <span style="color: #38BDF8;">logger.emit('request')</span>
           </div>
-          <div class="terminal-chips">
-            <div class="terminal-chip">
-              <div class="chip-label">Runtime Engine</div>
-              <div class="chip-value" style="color: #34D399;">Node.js ${process.version}</div>
-            </div>
-            <div class="terminal-chip">
-              <div class="chip-label">Architecture</div>
-              <div class="chip-value" style="color: #38BDF8;">Event-Driven</div>
-            </div>
-            <div class="terminal-chip">
-              <div class="chip-label">Server Labs</div>
-              <div class="chip-value" style="color: #F8FAFC;">Lab 01 &ndash; 04</div>
-            </div>
-            <div class="terminal-chip">
-              <div class="chip-label">Script Labs</div>
-              <div class="chip-value" style="color: #F8FAFC;">Lab 05 &ndash; 07</div>
-            </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding-top: 10px; border-top: 1px solid #1E293B; font-size: 0.78rem; color: #94A3B8;">
+            <span>Runtime: <strong style="color: #34D399;">Node.js ${process.version}</strong></span>
+            <span>Architecture: <strong style="color: #38BDF8;">Event-Driven</strong></span>
           </div>
         </div>
       </div>
@@ -1172,22 +1111,8 @@ async function handleHome(req, res) {
         <p class="section-desc">Browse, execute, and inspect all seven modular laboratory implementations.</p>
       </div>
 
-      <!-- Server Labs Section -->
-      <div class="category-divider">
-        <span class="category-badge cat-server">Server Labs (01 &ndash; 04)</span>
-        <div class="cat-line"></div>
-      </div>
       <div class="labs-grid">
-        ${serverCardsHtml}
-      </div>
-
-      <!-- Script & Process Labs Section -->
-      <div class="category-divider">
-        <span class="category-badge cat-script">Script & Process Labs (05 &ndash; 07)</span>
-        <div class="cat-line"></div>
-      </div>
-      <div class="labs-grid">
-        ${scriptCardsHtml}
+        ${allCardsHtml}
       </div>
     </section>
 
